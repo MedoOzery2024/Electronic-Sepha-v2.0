@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Electronic Sepha v2.0</title>
+<style>
+        body {
+            background-color: black;
+            color: yellow;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            direction: rtl;
+        }
+        h1, h2, p {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: yellow;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .counter {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .reset {
+            background-color: red;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>مرحبا بكم في برنامج السبحة الإلكترونية</h1>
+    <p>صلي علي النبي محمد</p>
+    <h2>إعداد:- الطالب محمود محمد محمود ابو الفتوح احمد العزيري</h2>
+
+    <div class="buttons">
+        <button onclick="count('سبحان الله')">سبحان الله</button>
+        <button onclick="count('الحمدلله يوماوعمراعلي كل حال')">الحمدلله يوماوعمراعلي كل حال</button>
+        <button onclick="count('الله أكبر')">الله أكبر</button>
+        <button onclick="count('لا حول ولا قوة الا بالله')">لا حول ولا قوة الا بالله</button>
+        <button onclick="count('لا إله إلا الله')">لا إله إلا الله</button>
+        <button onclick="count('اللهم صلي علي النبي محمد')">اللهم صلي علي النبي محمد</button>
+    </div>
+
+    <div id="counters">
+        <div class="counter" id="سبحان الله">سبحان الله: 0</div>
+        <div class="counter" id="الحمدلله يوماوعمراعلي كل حال">الحمدلله يوماوعمراعلي كل حال: 0</div>
+        <div class="counter" id="الله أكبر">الله أكبر: 0</div>
+        <div class="counter" id="لا حول ولا قوة الا بالله">لا حول ولا قوة الا بالله: 0</div>
+        <div class="counter" id="لا إله إلا الله">لا إله إلا الله: 0</div>
+        <div class="counter" id="اللهم صلي علي النبي محمد">اللهم صلي علي النبي محمد: 0</div>
+    </div>
+
+    <button class="reset" onclick="resetCounters()">إعادة التعيين</button>
+
+    <script>
+        // تابع لتحديث العدد لكل زر
+        function count(buttonText) {
+            const counterElement = document.getElementById(buttonText);
+            let count = parseInt(counterElement.textContent.split(": ")[1]);
+            counterElement.textContent = `${buttonText}: ${count + 1}`;
+        }
+
+        // تابع لإعادة تعيين الأعداد
+        function resetCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const text = counter.id;
+                counter.textContent = `${text}: 0`;
+            });
+        }
+    </script>
+
+</body>
+</html>
